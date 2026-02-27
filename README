@@ -1,0 +1,18 @@
+GP1/
+├── backend/
+│   ├── node_modules/
+│   ├── package.json
+│   ├── package-lock.json
+│   └── server.js        # Backend server using Node.js
+├── frontend/
+│   ├── css/
+│   │   └── style.css    # CSS for styling
+│   ├── images/          # Folder for images
+│   ├── about.html       # About page
+│   ├── contact.html     # Contact page
+│   ├── home.html        # Home page
+│   ├── search.html      # Listings page
+│   ├── login.html       # Login page
+│   ├── register.html    # Registration page
+│   ├── script.js        # JavaScript for interactivity
+│   └── view_property.html # Individual property view

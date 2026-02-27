@@ -1,0 +1,250 @@
+z<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Contact Us</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<header class="header">
+   <nav class="navbar">
+      <section class="flex">
+         <a href="home.html" class="logo"><i class="fas fa-house"></i>BLUE_CITY</a>
+     
+         <ul>
+           
+
+            <!-- Navigation Links -->
+            <li><a href="search.html">Search</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html#faq">FAQ</a></li>
+
+            <!-- Login/Register Links (visible when not logged in) -->
+            <li id="loginNav"><a href="login.html">Login</a></li>
+            <li id="registerNav"><a href="register.html">Register</a></li>
+             <!-- Display Welcome Message with Username -->
+             <li id="welcomeUser" style="display: none;">
+               <span id="usernameDisplay"></span> 
+               <button id="logoutButton">Logout</button>
+           </li>
+        </ul>
+      </section>
+   </nav>
+</header>
+<!-- header section ends -->
+
+<!-- contact section starts  -->
+
+<section class="contact">
+   <div class="row">
+      <div class="image">
+         <img src="images/Screenshot_2024-12-14_at_23.44.54-removebg-preview.png" alt="">
+      </div>
+      <form id="contact-form" action="http://localhost:3001/contact" method="post">
+         <h3>Get in Touch</h3>
+         <input type="text" name="name" required maxlength="50" placeholder="Enter your name" class="box">
+         <input type="email" name="email" required maxlength="50" placeholder="Enter your email" class="box">
+         <textarea name="message" placeholder="Enter your message" required maxlength="1000" cols="30" rows="10" class="box"></textarea>
+         <input type="submit" value="Send Message" name="send" class="btn">
+      </form>
+      <div id="form-message"></div> 
+   </div>
+</section>
+
+<!-- contact section ends -->
+
+<!-- faq section starts  -->
+
+<section class="faq" id="faq">
+   <h1 class="heading">FAQ</h1>
+   <div class="box-container">
+      <div class="box active">
+         <h3><span>How can I modify or cancel a property booking?</span><i class="fas fa-angle-down"></i></h3>
+         <p>To modify or cancel a property booking, log into your account, navigate to the "My Bookings" section, select the booking, and choose the appropriate option to modify or cancel. Cancellation fees may apply based on the property's policy.</p>
+      </div>
+      <div class="box active">
+         <h3><span>What is the process for taking possession of a property?</span><i class="fas fa-angle-down"></i></h3>
+         <p>The possession process depends on the property type and contract terms. Typically, possession occurs on the date specified in the rental or purchase agreement. Ensure all necessary payments and documentation are complete.</p>
+      </div>
+      <div class="box">
+         <h3><span>How can I pay rent for my property?</span><i class="fas fa-angle-down"></i></h3>
+         <p>Rent payments can be made directly through our platform using secure payment options such as credit/debit cards or bank transfers. Access the "My Rentals" section and select "Pay Rent" for the relevant property.</p>
+      </div>
+      <div class="box">
+         <h3><span>How do I communicate with potential buyers?</span><i class="fas fa-angle-down"></i></h3>
+         <p>When a buyer expresses interest in your property, you will receive a notification via email or your dashboard. Use the platform's secure messaging system to communicate directly with the buyer.</p>
+      </div>
+      <div class="box">
+         <h3><span>Why isn't my property listing visible on the platform?</span><i class="fas fa-angle-down"></i></h3>
+         <p>If your property listing is not visible, it may be under review, missing required details, or in violation of platform guidelines. Check your dashboard for any alerts or updates regarding the listing status.</p>
+      </div>
+      <div class="box">
+         <h3><span>What steps can I take to promote my property listing?</span><i class="fas fa-angle-down"></i></h3>
+         <p>To increase the visibility of your property listing, consider using the "Featured Listing" option available in your dashboard. This option highlights your property, making it more visible to potential buyers or renters.</p>
+      </div>
+   </div>
+</section>
+
+<!-- faq section ends -->
+
+<!-- footer section starts  -->
+
+<footer class="footer">
+
+   <section class="flex">
+
+      <div class="box">
+         <a href="tel:+90 5063565133"><i class="fas fa-phone"></i><span>+90 5063565133</span></a>
+        
+         <a href="m20222022509@gmail.com"><i class="fas fa-envelope"></i><span>m20222022509@gmail.com</span></a>
+         <a href="#"><i class="fas fa-map-marker-alt"></i><span>istanbul ,turkey</span></a>
+      </div>
+
+      <div class="box">
+         <a href="home.html"><span>home</span></a>
+         <a href="about.html"><span>about</span></a>
+         <a href="contact.html"><span>contact</span></a>
+     
+      </div>
+
+      <div class="box">
+         <a href="#"><span>facebook</span><i class="fab fa-facebook-f"></i></a>
+         <a href="#"><span>twitter</span><i class="fab fa-twitter"></i></a>
+         <a href="#"><span>linkedin</span><i class="fab fa-linkedin"></i></a>
+         <a href="#"><span>instagram</span><i class="fab fa-instagram"></i></a>
+
+      </div>
+
+   </section>
+
+   <div class="credit"> PROJECT BY: <span>NISRINE MAZOUZI </span> 20222022509 </div>
+
+</footer>
+
+<!-- footer section ends -->
+
+
+<!-- custom js file link  -->
+<script>
+ 
+ 
+ document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
+    const messageDiv = document.getElementById('form-message');
+
+    // FAQ functionality
+    document.querySelectorAll('.faq .box h3').forEach((heading) => {
+        heading.onclick = () => {
+            const box = heading.parentElement;
+            box.classList.toggle('active');
+        };
+    });
+
+    form.onsubmit = async (e) => {
+        e.preventDefault(); // Prevent default form submission
+
+        // Disable the submit button to prevent multiple submissions
+        const submitButton = form.querySelector('input[type="submit"]');
+        submitButton.disabled = true;
+
+        // Get form data
+        const formData = new FormData(form);
+
+        // Show loading message
+        messageDiv.textContent = 'Sending your message...';
+        messageDiv.style.color = 'blue';
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: JSON.stringify({
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    message: formData.get('message'),
+                }),
+                headers: { 'Content-Type': 'application/json' },
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                if (result.success) {
+                    messageDiv.textContent = 'Message sent successfully!';
+                    messageDiv.style.color = 'green';
+                    form.reset(); // Clear the form
+                } else {
+                    messageDiv.textContent = result.error || 'Failed to send message. Try again.';
+                    messageDiv.style.color = 'red';
+                }
+            } else {
+                messageDiv.textContent = 'Server error. Please try again later.';
+                messageDiv.style.color = 'red';
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            messageDiv.textContent = 'An error occurred. Please check your internet connection or try again later.';
+            messageDiv.style.color = 'red';
+        } finally {
+            // Re-enable the submit button after the request is complete
+            submitButton.disabled = false;
+        }
+    };
+});
+
+
+window.onload = () => {
+    const username = localStorage.getItem('username');
+    if (username) {
+        const welcomeUser = document.getElementById('welcomeUser');
+        const usernameDisplay = document.getElementById('usernameDisplay');
+        if (welcomeUser && usernameDisplay) {
+            welcomeUser.style.display = 'block';
+            usernameDisplay.textContent = username;
+        }
+
+        // Hide the login/register links
+        ['loginNav', 'registerNav'].forEach((id) => {
+            const navElement = document.getElementById(id);
+            if (navElement) navElement.style.display = 'none';
+        });
+    }
+};
+
+document.getElementById('logoutButton').onclick = () => {
+    // Remove username from localStorage on logout
+    localStorage.removeItem('username');
+
+    // Reset welcome user display
+    const welcomeUser = document.getElementById('welcomeUser');
+    if (welcomeUser) {
+        welcomeUser.style.display = 'none';
+    }
+
+    // Show the login/register links
+    ['loginNav', 'registerNav'].forEach((id) => {
+        const navElement = document.getElementById(id);
+        if (navElement) navElement.style.display = 'block';
+    });
+
+    // Redirect to login page
+    window.location.href = 'login.html';
+};
+
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
