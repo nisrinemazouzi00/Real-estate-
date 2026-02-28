@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Login</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+<header class="header">
+   <nav class="navbar">
+      <section class="flex">
+         <a href="home.html" class="logo"><i class="fas fa-house"></i>BLUE_CITY</a>
+     
+         <ul>
+            <!-- Display Welcome Message with Username -->
+            <li id="welcomeUser" style="display: none;">
+                 <span id="usernameDisplay"></span> 
+                <button id="logoutButton">Logout</button>
+            </li>
+
+            <!-- Navigation Links -->
+            <li><a href="search.html">Search</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html#faq">FAQ</a></li>
+
+            <!-- Login/Register Links (visible when not logged in) -->
+            <li id="loginNav"><a href="login.html">Login</a></li>
+            <li id="registerNav"><a href="register.html">Register</a></li>
+        </ul>
+      </section>
+   </nav>
+</header>
+
+<!-- header section ends -->
+
+<!-- login section starts  -->
+
+<section class="form-container">
+
+   <form id="loginForm" action="http://localhost:3001/login" method="post">
+      <h3>welcome back!</h3>
+      <input type="email" name="email" required maxlength="50" placeholder="enter your email" class="box">
+      <input type="password" name="password" required maxlength="20" placeholder="enter your password" class="box">
+      <p>don't have an account? <a href="register.html">register new</a></p>
+      <input type="submit" value="login now" id="loginBtn" class="btn">
+   </form>
+   
+
+</section>
+
+<!-- login section ends -->
+
+
+<!-- footer section starts  -->
+
+<footer class="footer">
+
+   <section class="flex">
+
+      <div class="box">
+         <a href="tel:+90 5063565133"><i class="fas fa-phone"></i><span>+90 5063565133</span></a>
+        
+         <a href="m20222022509@gmail.com"><i class="fas fa-envelope"></i><span>m20222022509@gmail.com</span></a>
+         <a href="#"><i class="fas fa-map-marker-alt"></i><span>istanbul ,turkey</span></a>
+      </div>
+
+      <div class="box">
+         <a href="home.html"><span>home</span></a>
+         <a href="about.html"><span>about</span></a>
+         <a href="contact.html"><span>contact</span></a>
+     
+      </div>
+
+      <div class="box">
+         <a href="#"><span>facebook</span><i class="fab fa-facebook-f"></i></a>
+         <a href="#"><span>twitter</span><i class="fab fa-twitter"></i></a>
+         <a href="#"><span>linkedin</span><i class="fab fa-linkedin"></i></a>
+         <a href="#"><span>instagram</span><i class="fab fa-instagram"></i></a>
+
+      </div>
+
+   </section>
+
+   <div class="credit">  PROJECT BY: <span>NISRINE MAZOUZI </span> 20222022509 |<span>HASHEM ALKHEDER </span>20202022002</div>
+
+</footer>
+
+<!-- footer section ends -->
+
+
+<!-- custom js file link  -->
+<script> 
+  document.getElementById('loginForm').onsubmit = async function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const email = document.querySelector('input[name="email"]').value;
+    const password = document.querySelector('input[name="password"]').value;
+
+    try {
+        const response = await fetch('http://localhost:3001/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, password }),
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            // Store the username in localStorage
+            localStorage.setItem('username', data.username);
+
+            // Redirect to the homepage or dashboard after successful login
+            window.location.href = 'home.html'; // or wherever you want to go after login
+        } else {
+            showNotification('Invalid login credentials');
+        }
+    } catch (error) {
+        console.error('Error during login:', error);
+        showNotification('Something went wrong. Please try again.');
+    }
+};
+
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = message;
+
+    document.body.appendChild(notification);
+    setTimeout(() => notification.remove(), 3000);
+}
+window.onload = () => {
+    const username = localStorage.getItem('username');
+    if (username) {
+        const welcomeUser = document.getElementById('welcomeUser');
+        const usernameDisplay = document.getElementById('usernameDisplay');
+        if (welcomeUser && usernameDisplay) {
+            welcomeUser.style.display = 'block';
+            usernameDisplay.textContent = username;
+        }
+
+        // Hide the login/register links
+        ['loginNav', 'registerNav'].forEach((id) => {
+            const navElement = document.getElementById(id);
+            if (navElement) navElement.style.display = 'none';
+        });
+    }
+};
+
+document.getElementById('logoutButton').onclick = () => {
+    // Remove username from localStorage on logout
+    localStorage.removeItem('username');
+
+    // Reset welcome user display
+    const welcomeUser = document.getElementById('welcomeUser');
+    if (welcomeUser) {
+        welcomeUser.style.display = 'none';
+    }
+
+    // Show the login/register links
+    ['loginNav', 'registerNav'].forEach((id) => {
+        const navElement = document.getElementById(id);
+        if (navElement) navElement.style.display = 'block';
+    });
+
+    // Redirect to login page
+    window.location.href = 'login.html';
+};
+
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

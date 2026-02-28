@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Search</title>
+
+   <!-- Font Awesome CDN link -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+   <!-- Custom CSS file link -->
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   
+<!-- Header section starts -->
+<header class="header">
+   <nav class="navbar">
+      <section class="flex">
+         <a href="home.html" class="logo"><i class="fas fa-house"></i>BLUE_CITY</a>
+     
+         <ul>
+           
+
+            <!-- Navigation Links -->
+            <li><a href="search.html">Search</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html#faq">FAQ</a></li>
+
+            <!-- Login/Register Links (visible when not logged in) -->
+            <li id="loginNav"><a href="login.html">Login</a></li>
+            <li id="registerNav"><a href="register.html">Register</a></li>
+             <!-- Display Welcome Message with Username -->
+             <li id="welcomeUser" style="display: none;">
+              <span id="usernameDisplay"></span> 
+               <button id="logoutButton">Logout</button>
+           </li>
+        </ul>
+      </section>
+   </nav>
+</header>
+<!-- Header section ends -->
+
+<!-- Home section starts -->
+<section class="home">
+   <div class="center">
+      <form id="search-form" action="#" method="POST">
+         <h3>Find Your Dream Property</h3>
+         <div class="flex">
+            <div class="box">
+               <label for="location">Location</label>
+               <input type="text" id="location" name="location" class="input" placeholder="Enter city, area, or address">
+            </div>
+            <div class="box">
+               <label for="type">Type</label>
+               <select id="type" name="type" class="input">
+                  <option value="" disabled selected>Select type</option>
+                  <option value="flat">Flat</option>
+                  <option value="house">House</option>
+                  <option value="villa">Villa</option>
+               </select>
+            </div>
+            <div class="box">
+               <label for="rooms">Rooms</label>
+               <select id="rooms" name="rooms" class="input">
+                  <option value="" disabled selected>Select Rooms</option>
+                  <option value="1">1 Room</option>
+                  <option value="2">2 Rooms</option>
+                  <option value="3">3 Rooms</option>
+                  <option value="4">4 Rooms</option>
+               </select>
+            </div>
+            <div class="box">
+               <label for="min-price">Min Price (USD)</label>
+               <select id="min-price" name="minimum_usd" class="input">
+                  <option value="0" selected>No Minimum</option>
+                  <option value="5000">5,000</option>
+                  <option value="10000">10,000</option>
+                  <option value="20000">20,000</option>
+                  <option value="50000">50,000</option>
+               </select>
+            </div>
+            <div class="box">
+               <label for="max-price">Max Price (USD)</label>
+               <select id="max-price" name="maximum_usd" class="input">
+                  <option value="1000000" selected>No Maximum</option>
+                  <option value="5000">5,000</option>
+                  <option value="10000">10,000</option>
+                  <option value="20000">20,000</option>
+                  <option value="50000">50,000</option>
+               </select>
+            </div>
+         </div>
+         <button type="submit" class="btn">Search Property</button>
+      </form>
+   </div>
+</section>
+<!-- Home section ends -->
+
+<!-- Listings section starts -->
+<section class="listings">
+   <h1 class="heading">All Listings</h1>
+   <div class="box-container">
+      <!-- Dynamic property boxes will be inserted here -->
+      <div class="box">
+         <div class="admin">
+            <h3>N</h3>
+            <div>
+               <p>Nisrine</p>
+               <span>2024-12-18</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
+            <p class="type"><span>house</span><span>sale</span></p>
+            <form action="" method="post" class="save">
+               <button type="submit" name="save" class="far fa-heart"></button>
+            </form>
+            <img src="images/Screenshot 2024-12-19 at 10.52.05.png" alt="">
+         </div>
+         <h3 class="name">modern flats and appartments</h3>
+         <p class="location"><i class="fas fa-map-marker-alt"></i><span>Beşiktaş, Istanbul, Turkey - 34349</span></p>
+         <div class="flex">
+            <p><i class="fas fa-bed"></i><span>3</span></p>
+            <p><i class="fas fa-bath"></i><span>2</span></p>
+            <p><i class="fas fa-maximize"></i><span>750sqft</span></p>
+         </div>
+         <a href="view_property.html" class="btn">view property</a>
+      </div>
+
+      <div class="box">
+         <div class="admin">
+            <h3>M</h3>
+            <div>
+               <p>MAZOUZI</p>
+               <span>2024-12-18</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
+            <p class="type"><span>flat</span><span>sale</span></p>
+            <form action="" method="post" class="save">
+               <button type="submit" name="save" class="far fa-heart"></button>
+            </form>
+            <img src="images/Screenshot 2024-12-19 at 10.53.21.png" alt="">
+         </div>
+         <h3 class="name">modern flats and appartments</h3>
+         <p class="location"><i class="fas fa-map-marker-alt"></i><span>Kadıköy, Istanbul, Turkey - 34710</span></p>
+         <div class="flex">
+            <p><i class="fas fa-bed"></i><span>3</span></p>
+            <p><i class="fas fa-bath"></i><span>2</span></p>
+            <p><i class="fas fa-maximize"></i><span>750sqft</span></p>
+         </div>
+         <a href="view_property.html" class="btn">view property</a>
+      </div>
+
+      <div class="box">
+         <div class="admin">
+            <h3>N</h3>
+            <div>
+               <p>Nisrine</p>
+               <span>2024-12-18</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
+            <p class="type"><span>flat</span><span>sale</span></p>
+            <form action="" method="post" class="save">
+               <button type="submit" name="save" class="far fa-heart"></button>
+            </form>
+            <img src="images/Screenshot 2024-12-19 at 10.54.34.png" alt="">
+         </div>
+         <h3 class="name">modern flats and appartments</h3>
+         <p class="location"><i class="fas fa-map-marker-alt"></i><span>Üsküdar, Istanbul, Turkey - 34664</span></p>
+         <div class="flex">
+            <p><i class="fas fa-bed"></i><span>3</span></p>
+            <p><i class="fas fa-bath"></i><span>2</span></p>
+            <p><i class="fas fa-maximize"></i><span>750sqft</span></p>
+         </div>
+         <a href="view_property.html" class="btn">view property</a>
+      </div>
+
+      <div class="box">
+         <div class="admin">
+            <h3>M</h3>
+            <div>
+               <p>MAZOUZI</p>
+               <span>2024-12-18</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
+            <p class="type"><span>flat</span><span>sale</span></p>
+            <form action="" method="post" class="save">
+               <button type="submit" name="save" class="far fa-heart"></button>
+            </form>
+            <img src="images/Screenshot 2024-12-19 at 11.10.52.png" alt="">
+         </div>
+         <h3 class="name">modern flats and appartments</h3>
+         <p class="location"><i class="fas fa-map-marker-alt"></i><span>Üsküdar, Istanbul, Turkey - 34664</span></p>
+         <div class="flex">
+            <p><i class="fas fa-bed"></i><span>3</span></p>
+            <p><i class="fas fa-bath"></i><span>2</span></p>
+            <p><i class="fas fa-maximize"></i><span>750sqft</span></p>
+         </div>
+         <a href="view_property.html" class="btn">view property</a>
+      </div>
+
+      <div class="box">
+         <div class="admin">
+            <h3>N</h3>
+            <div>
+               <p>Nisrine</p>
+               <span>2024-12-18</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
+            <p class="type"><span>flat</span><span>sale</span></p>
+            <form action="" method="post" class="save">
+               <button type="submit" name="save" class="far fa-heart"></button>
+            </form>
+            <img src="images/Screenshot 2024-12-19 at 11.11.29.png" alt="">
+         </div>
+         <h3 class="name">modern flats and appartments</h3>
+         <p class="location"><i class="fas fa-map-marker-alt"></i><span>Kadıköy, Istanbul, Turkey - 34710</span></p>
+         <div class="flex">
+            <p><i class="fas fa-bed"></i><span>3</span></p>
+            <p><i class="fas fa-bath"></i><span>2</span></p>
+            <p><i class="fas fa-maximize"></i><span>750sqft</span></p>
+         </div>
+         <a href="view_property.html" class="btn">view property</a>
+      </div>
+
+      <div class="box">
+         <div class="admin">
+            <h3>N</h3>
+            <div>
+               <p>Nisrine</p>
+               <span>2024-12-18</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
+            <p class="type"><span>flat</span><span>sale</span></p>
+            <form action="" method="post" class="save">
+               <button type="submit" name="save" class="far fa-heart"></button>
+            </form>
+            <img src="images/Screenshot 2024-12-19 at 11.11.50.png" alt="">
+         </div>
+         <h3 class="name">modern flats and appartments</h3>
+         <p class="location"><i class="fas fa-map-marker-alt"></i><span>Kadıköy, Istanbul, Turkey - 34710</span></p>
+         <div class="flex">
+            <p><i class="fas fa-bed"></i><span>3</span></p>
+            <p><i class="fas fa-bath"></i><span>2</span></p>
+            <p><i class="fas fa-maximize"></i><span>750sqft</span></p>
+         </div>
+         <a href="view_property.html" class="btn">view property</a>
+      </div>
+
+   </div>
+</section>
+<!-- Listings section ends -->
+
+<script>
+
+// Property search functionality
+document.getElementById('search-form').addEventListener('submit', function (e) {
+    e.preventDefault(); 
+
+    const locationInput = document.getElementById('location').value.toLowerCase();
+    const typeInput = document.getElementById('type').value;
+    const roomsInput = document.getElementById('rooms').value;
+    const minPriceInput = parseInt(document.getElementById('min-price').value) || 0;
+    const maxPriceInput = parseInt(document.getElementById('max-price').value) || Infinity;
+
+    const filteredProperties = properties.filter((property) => {
+        return (
+            (locationInput === "" || property.location.toLowerCase().includes(locationInput)) &&
+            (typeInput === "" || property.type === typeInput) &&
+            (roomsInput === "" || property.rooms === roomsInput) &&
+            property.minPrice >= minPriceInput &&
+            property.maxPrice <= maxPriceInput
+        );
+    });
+
+    displayProperties(filteredProperties);
+
+    // Scroll down to the listings section after the properties are displayed
+    const listingsContainer = document.querySelector('.listings');
+    listingsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+
+// Sample property data 
+const properties = [
+    {
+        location: "Beşiktaş, Istanbul, Turkey",
+        type: "house",
+        rooms: "3",
+        minPrice: 20000,
+        maxPrice: 75000,
+        img: "images/Screenshot 2024-12-19 at 10.52.05.png",
+    },
+    {
+        location: "Kadıköy, Istanbul, Turkey",
+        type: "flat",
+        rooms: "2",
+        minPrice: 15000,
+        maxPrice: 50000,
+        img: "images/Screenshot 2024-12-19 at 10.53.21.png",
+    },
+    {
+        location: "Üsküdar, Istanbul, Turkey",
+        type: "villa",
+        rooms: "4",
+        minPrice: 30000,
+        maxPrice: 100000,
+        img: "images/Screenshot 2024-12-19 at 10.54.34.png",
+    },
+    
+    // Additional sample properties...
+
+    {
+        location: "Üsküdar, Istanbul, Turkey",
+        type: "flat",  // Corrected the quotation mark here
+        rooms: "4",
+        minPrice: 30000,
+        maxPrice: 100000,
+        img: "images/Screenshot 2024-12-19 at 11.10.52.png",
+    },
+    {
+        location: "Kadıköy, Istanbul, Turkey",
+        type: "flat",  // Corrected the quotation mark here
+        rooms: "4",
+        minPrice: 30000,
+        maxPrice: 100000,
+        img: "images/Screenshot 2024-12-19 at 11.11.29.png",
+    },
+    {
+        location: "Kadıköy, Istanbul, Turkey",
+        type: "flat",  // Corrected the quotation mark here
+        rooms: "4",
+        minPrice: 30000,
+        maxPrice: 100000,
+        img: "images/Screenshot 2024-12-19 at 11.11.50.png",
+    },
+];
+
+// Dynamically display properties
+function displayProperties(properties) {
+    const listingsContainer = document.querySelector('.listings .box-container');
+    listingsContainer.innerHTML = ""; // Clear existing listings
+
+    if (properties.length === 0) {
+        listingsContainer.innerHTML = "<p>No properties found matching your criteria.</p>";
+        return;
+    }
+
+    properties.forEach((property) => {
+        const propertyBox = `
+            <div class="box">
+                <div class="thumb">
+                    <img src="${property.img}" alt="Property Image">
+                </div>
+                <h3 class="name">${property.type.charAt(0).toUpperCase() + property.type.slice(1)}</h3>
+                <p class="location"><i class="fas fa-map-marker-alt"></i>${property.location}</p>
+                <div class="flex">
+                    <p><i class="fas fa-bed"></i>${property.rooms} Rooms</p>
+                    <p><i class="fas fa-dollar-sign"></i>${property.minPrice} - ${property.maxPrice} USD</p>
+                </div>
+                <a href="view_property.html" class="btn">View Property</a>
+            </div>
+        `;
+        listingsContainer.innerHTML += propertyBox;
+    });
+}
+
+
+window.onload = () => {
+    const username = localStorage.getItem('username');
+    if (username) {
+        const welcomeUser = document.getElementById('welcomeUser');
+        const usernameDisplay = document.getElementById('usernameDisplay');
+        if (welcomeUser && usernameDisplay) {
+            welcomeUser.style.display = 'block';
+            usernameDisplay.textContent = username;
+        }
+
+        // Hide the login/register links
+        ['loginNav', 'registerNav'].forEach((id) => {
+            const navElement = document.getElementById(id);
+            if (navElement) navElement.style.display = 'none';
+        });
+    }
+};
+
+document.getElementById('logoutButton').onclick = () => {
+    // Remove username from localStorage on logout
+    localStorage.removeItem('username');
+
+    // Reset welcome user display
+    const welcomeUser = document.getElementById('welcomeUser');
+    if (welcomeUser) {
+        welcomeUser.style.display = 'none';
+    }
+
+    // Show the login/register links
+    ['loginNav', 'registerNav'].forEach((id) => {
+        const navElement = document.getElementById(id);
+        if (navElement) navElement.style.display = 'block';
+    });
+
+    // Redirect to login page
+    window.location.href = 'login.html';
+};
+
+
+</script>
+
+<script src="script .js"></script>
+</body>
+</html>
